@@ -1,11 +1,10 @@
 package com.processframework.sample.common
 
-import jakarta.persistence.*
 import com.processframework.framework.process.Process
-import java.util.UUID
+import jakarta.persistence.*
 
-@Entity
 @Table(name = "PROCESS")
+@Entity(name = "CUSTOM_PROCESS")
 @DiscriminatorColumn(name = "PROCESS_NAME", discriminatorType = DiscriminatorType.STRING)
 open class CustomProcess(
     @Id

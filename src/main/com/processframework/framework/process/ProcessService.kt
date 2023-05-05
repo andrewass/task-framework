@@ -7,4 +7,7 @@ abstract class ProcessService(
     fun save(process: Process) {
         processRepository.save(process)
     }
+
+    fun getAllActiveProcesses() =
+        processRepository.getAll()
 }

@@ -5,13 +5,15 @@ import com.processframework.framework.process.ProcessRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-class CustomRepository : ProcessRepository {
+class CustomRepository(
+    private val jpaRepository: ProcessJpaRepository
+) : ProcessRepository {
 
     override fun save(process: Process) {
-        TODO("Not yet implemented")
+        jpaRepository.save(process as CustomProcess)
     }
 
-    override fun getAll(): Collection<Process> {
-        TODO("Not yet implemented")
-    }
+    override fun getAll(): Collection<Process> =
+        jpaRepository.findAll()
+
 }
