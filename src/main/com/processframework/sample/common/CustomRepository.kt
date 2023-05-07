@@ -10,10 +10,12 @@ class CustomRepository(
 ) : ProcessRepository {
 
     override fun save(process: Process) {
-        jpaRepository.save(process as CustomProcess)
+        val response = jpaRepository.save(process as CustomProcess)
+        val test = 323
     }
 
-    override fun getAll(): Collection<Process> =
-        jpaRepository.findAll()
-
+    override fun getAll(): Collection<Process> {
+        val response = jpaRepository.findAll()
+        return response
+    }
 }

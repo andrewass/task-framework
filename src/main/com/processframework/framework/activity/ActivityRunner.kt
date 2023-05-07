@@ -1,6 +1,6 @@
 package com.processframework.framework.activity
 
-abstract class Activity {
+abstract class ActivityRunner<T : Activity> {
 
     fun run(){
 
