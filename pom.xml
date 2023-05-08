@@ -11,8 +11,8 @@
     <groupId>com.project</groupId>
     <artifactId>task-framework</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>process-framework</name>
-    <description>process-framework</description>
+    <name>task-framework</name>
+    <description>task-framework</description>
 
     <properties>
         <java.version>17</java.version>
