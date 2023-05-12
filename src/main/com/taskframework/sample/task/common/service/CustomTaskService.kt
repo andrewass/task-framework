@@ -1,4 +1,4 @@
-package com.taskframework.sample.common.service
+package com.taskframework.sample.task.common.service
 
 import org.springframework.stereotype.Service
 import com.taskframework.framework.task.TaskRepository

@@ -1,4 +1,4 @@
-package com.taskframework.sample.common.task
+package com.taskframework.sample.task.common.task
 
 import com.taskframework.framework.task.Task
 import jakarta.persistence.*

@@ -1,8 +1,8 @@
-package com.taskframework.sample.firsttask.controller
+package com.taskframework.sample.task.firsttask.controller
 
 import com.taskframework.framework.task.TaskOrchestrationService
 import com.taskframework.framework.task.TaskService
-import com.taskframework.sample.firsttask.task.FirstTask
+import com.taskframework.sample.task.firsttask.task.FirstTask
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -22,11 +22,9 @@ class FirstController(
 
     @GetMapping("/get-all")
     fun getAll() {
-       taskService.getAllActiveTasks()
     }
 
     @PostMapping("/start-all")
     fun startAll(){
-
     }
 }

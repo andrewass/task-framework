@@ -1,8 +1,8 @@
-package com.taskframework.sample.common.repository
+package com.taskframework.sample.task.common.repository
 
 import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskRepository
-import com.taskframework.sample.common.task.CustomTask
+import com.taskframework.sample.task.common.task.CustomTask
 import org.springframework.stereotype.Repository
 
 @Repository

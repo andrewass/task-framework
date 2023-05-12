@@ -8,6 +8,7 @@ abstract class TaskService(
         repository.save(task)
     }
 
-    fun getAllActiveTasks() =
-        repository.getAll()
+    fun getTasksByStatus(taskStatus: TaskStatus){
+        repository.getAllByStatus()
+    }
 }

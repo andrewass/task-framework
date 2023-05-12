@@ -1,4 +1,4 @@
-package com.taskframework.sample.common.service
+package com.taskframework.sample.task.common.service
 
 import com.taskframework.framework.task.TaskOrchestrationRepository
 import com.taskframework.framework.task.TaskOrchestrationService
