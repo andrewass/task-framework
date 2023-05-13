@@ -12,7 +12,10 @@ abstract class TaskService(
         repository.save(task)
     }
 
-    fun getTasksByStatus(taskStatus: TaskStatus){
+    fun getAll(): List<Task> = repository.getAll()
+
+
+    fun getTasksByStatus(taskStatus: TaskStatus) {
         repository.getAllByStatus(TaskStatus.AWAITING)
     }
 }

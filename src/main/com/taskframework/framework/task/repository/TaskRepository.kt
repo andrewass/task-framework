@@ -6,7 +6,7 @@ import com.taskframework.framework.task.TaskStatus
 interface TaskRepository {
     fun save(task: Task)
 
-    fun getAll(): Collection<Task>
+    fun getAll(): List<Task>
 
     fun getAllByStatus(status: TaskStatus) : Collection<Task>
 }

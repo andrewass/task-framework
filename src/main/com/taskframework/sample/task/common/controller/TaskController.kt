@@ -23,7 +23,7 @@ class TaskController(
 
     @GetMapping("/get-all")
     fun getAll(): List<Task> {
-        return emptyList()
+        return taskService.getAll()
     }
 
     @PostMapping("/start-all")

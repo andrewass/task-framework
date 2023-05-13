@@ -10,7 +10,7 @@ abstract class TaskOrchestrationService(
 
     fun runTasks() {
         repository.findAllIncompleteTasks()
-            .forEach { getTaskRunner(it).runTask(it) }
+            .forEach { it.run() }
     }
 
     protected abstract fun getTaskRunner(task: Task): TaskRunner
