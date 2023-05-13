@@ -1,8 +1,6 @@
 package com.taskframework.framework.subtask
 
-abstract class SubTaskRunner {
+interface SubTaskRunner {
 
-    fun runSubTask(subTask: SubTask){
-
-    }
+    fun runSubTask(subTask: SubTask)
 }

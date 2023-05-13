@@ -1,4 +1,7 @@
-package com.taskframework.framework.task
+package com.taskframework.framework.task.repository
+
+import com.taskframework.framework.task.Task
+import com.taskframework.framework.task.TaskStatus
 
 interface TaskRepository {
     fun save(task: Task)

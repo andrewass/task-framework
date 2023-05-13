@@ -1,9 +1,7 @@
 package com.taskframework.framework.task
 
 
-abstract class TaskRunner {
+interface TaskRunner {
 
-    fun runTask(task: Task){
-        task.run()
-    }
+    fun runTask(task: Task)
 }

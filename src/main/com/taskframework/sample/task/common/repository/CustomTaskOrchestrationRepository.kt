@@ -1,7 +1,7 @@
 package com.taskframework.sample.task.common.repository
 
 import com.taskframework.framework.task.Task
-import com.taskframework.framework.task.TaskOrchestrationRepository
+import com.taskframework.framework.task.repository.TaskOrchestrationRepository
 import org.springframework.stereotype.Repository
 
 @Repository
