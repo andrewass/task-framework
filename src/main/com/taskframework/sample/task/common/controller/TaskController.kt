@@ -1,8 +1,8 @@
 package com.taskframework.sample.task.common.controller
 
 import com.taskframework.framework.task.Task
-import com.taskframework.framework.task.service.TaskOrchestrationService
-import com.taskframework.framework.task.service.TaskService
+import com.taskframework.framework.service.TaskOrchestrationService
+import com.taskframework.framework.service.TaskService
 import com.taskframework.sample.task.firsttask.task.FirstTask
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping

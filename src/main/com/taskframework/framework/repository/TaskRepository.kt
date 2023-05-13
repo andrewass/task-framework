@@ -1,4 +1,4 @@
-package com.taskframework.framework.task.repository
+package com.taskframework.framework.repository
 
 import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskStatus

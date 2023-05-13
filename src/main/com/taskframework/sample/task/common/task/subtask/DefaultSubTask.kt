@@ -1,5 +1,6 @@
-package com.taskframework.sample.task.common.task
+package com.taskframework.sample.task.common.task.subtask
 
+import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.*
 
 @Table

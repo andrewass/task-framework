@@ -1,8 +1,8 @@
-package com.taskframework.framework.task.service
+package com.taskframework.framework.service
 
 import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskRunner
-import com.taskframework.framework.task.repository.TaskOrchestrationRepository
+import com.taskframework.framework.repository.TaskOrchestrationRepository
 
 abstract class TaskOrchestrationService(
     private val repository: TaskOrchestrationRepository

@@ -1,8 +1,8 @@
 package com.taskframework.sample.task.common.service
 
 import org.springframework.stereotype.Service
-import com.taskframework.framework.task.repository.TaskRepository
-import com.taskframework.framework.task.service.TaskService
+import com.taskframework.framework.repository.TaskRepository
+import com.taskframework.framework.service.TaskService
 
 @Service
 class DefaultTaskService(

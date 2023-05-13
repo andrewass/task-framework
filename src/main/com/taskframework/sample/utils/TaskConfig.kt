@@ -8,10 +8,19 @@ import org.springframework.context.annotation.Configuration
 @Configuration
 class TaskConfig {
 
-    @Bean
-    fun getServiceLocaterFactoryBean(): FactoryBean<*> {
+    @Bean("taskRunnerFactory")
+    fun getServiceLocaterFactoryBeanTask(): FactoryBean<*> {
+        val factoryBean = ServiceLocatorFactoryBean()
+        factoryBean.setServiceLocatorInterface(TaskRunnerFactory::class.java)
+        return factoryBean
+    }
+
+    @Bean("subTaskRunnerFactory")
+    fun getServiceLocaterFactoryBeanSubTask(): FactoryBean<*> {
         val factoryBean = ServiceLocatorFactoryBean()
         factoryBean.setServiceLocatorInterface(SubTaskRunnerFactory::class.java)
         return factoryBean
     }
+
+
 }

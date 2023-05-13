@@ -1,4 +1,4 @@
-package com.taskframework.framework.subtask
+package com.taskframework.framework.task.subtask
 
 enum class SubTaskStatus {
     CREATED,

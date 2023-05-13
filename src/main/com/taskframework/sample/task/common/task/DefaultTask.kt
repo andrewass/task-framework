@@ -2,6 +2,7 @@ package com.taskframework.sample.task.common.task
 
 import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskStatus
+import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
 import jakarta.persistence.*
 
 @Table(name = "TASK")
