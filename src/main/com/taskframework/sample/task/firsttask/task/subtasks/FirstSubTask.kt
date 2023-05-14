@@ -8,14 +8,14 @@ import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
 import org.springframework.stereotype.Component
 
-@Entity(name = "FIRST_TASK")
-@DiscriminatorValue("FIRST_TASK")
+@Entity(name = "FIRST_SUBTASK")
+@DiscriminatorValue("FIRST_SUBTASK")
 class FirstSubTask(
     task: DefaultTask
 ) : DefaultSubTask(task = task)
 
 
-@Component("FIRST_TASK_RUNNER")
+@Component("FIRST_SUBTASK_RUNNER")
 class FirstSubTaskRunner : SubTaskRunner {
 
     override fun runSubTask(subTask: SubTask) {

@@ -5,8 +5,10 @@ import com.taskframework.framework.task.TaskStatus
 import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
 import jakarta.persistence.*
 
+
+@Entity
 @Table(name = "TASK")
-@Entity(name = "DEFAULT_TASK")
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorColumn(name = "TASK_NAME", discriminatorType = DiscriminatorType.STRING)
 abstract class DefaultTask(
     @Id
@@ -19,4 +21,13 @@ abstract class DefaultTask(
 
     open var taskStatus: TaskStatus = TaskStatus.CREATED
 
-) : Task()
+) : Task {
+
+    override fun run() {
+        TODO("Not yet implemented")
+    }
+
+    override fun getTaskName(): String {
+        TODO("Not yet implemented")
+    }
+}

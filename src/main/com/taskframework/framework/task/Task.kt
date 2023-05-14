@@ -1,9 +1,10 @@
 package com.taskframework.framework.task
 
 
-abstract class Task {
+interface Task {
 
-    fun run() {
-        println("Running task!!!!!!!!!!!!!!!!!!!")
-    }
+    fun run()
+
+    fun getTaskName() : String
+
 }

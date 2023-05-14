@@ -7,17 +7,17 @@ import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
 import org.springframework.stereotype.Component
 
-@Entity(name = "FIRST_TASK")
+@Entity
 @DiscriminatorValue("FIRST_TASK")
 class FirstTask(
     personId: Long
 ) : DefaultTask()
 
 
-@Component
+@Component("FIRST_TASK_RUNNER")
 class FirstTaskRunner : TaskRunner {
 
     override fun runTask(task: Task) {
-        TODO("Not yet implemented")
+        println("Running first task")
     }
 }
