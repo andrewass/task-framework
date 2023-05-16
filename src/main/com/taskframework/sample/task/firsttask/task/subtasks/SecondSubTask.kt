@@ -1,7 +1,5 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
-import com.taskframework.framework.task.subtask.SubTask
-import com.taskframework.framework.task.subtask.SubTaskRunner
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
 import jakarta.persistence.DiscriminatorValue
@@ -17,9 +15,9 @@ class SecondSubTask(
 
 
 @Component("SECOND_SUBTASK_RUNNER")
-class SecondSubTaskTaskRunner : SubTaskRunner {
+class SecondSubTaskRunner {
 
-    override fun runSubTask(subTask: SubTask) {
+    fun runSubTask(subTask: DefaultSubTask) {
         TODO("Not yet implemented")
     }
 }

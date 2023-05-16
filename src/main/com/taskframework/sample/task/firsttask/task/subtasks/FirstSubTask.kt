@@ -1,6 +1,5 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
-import com.taskframework.framework.task.subtask.SubTask
 import com.taskframework.framework.task.subtask.SubTaskRunner
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
@@ -18,7 +17,7 @@ class FirstSubTask(
 @Component("FIRST_SUBTASK_RUNNER")
 class FirstSubTaskRunner : SubTaskRunner {
 
-    override fun runSubTask(subTask: SubTask) {
+    override fun runSubTask(subTask: DefaultSubTask) {
         TODO("Not yet implemented")
     }
 }

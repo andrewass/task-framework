@@ -1,6 +1,5 @@
 package com.taskframework.sample.task.common.task
 
-import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskStatus
 import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
 import jakarta.persistence.*
@@ -21,13 +20,16 @@ abstract class DefaultTask(
 
     open var taskStatus: TaskStatus = TaskStatus.CREATED
 
-) : Task {
+) {
 
-    override fun run() {
+    fun run() {
         TODO("Not yet implemented")
     }
 
-    override fun getTaskName(): String {
+    fun getTaskName(): String {
         TODO("Not yet implemented")
     }
+
+    @Transient
+    fun getDiscriminatorValue(): String = this.javaClass.getAnnotation(DiscriminatorValue::class.java).value
 }
