@@ -1,10 +1,10 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
+import com.taskframework.framework.task.subtask.SubTaskRunnerComponent
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
 import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
-import org.springframework.stereotype.Component
 
 
 @Entity(name = "SECOND_SUBTASK")
@@ -14,7 +14,7 @@ class SecondSubTask(
 ) : DefaultSubTask(task = task)
 
 
-@Component("SECOND_SUBTASK_RUNNER")
+@SubTaskRunnerComponent("SECOND_SUBTASK")
 class SecondSubTaskRunner {
 
     fun runSubTask(subTask: DefaultSubTask) {

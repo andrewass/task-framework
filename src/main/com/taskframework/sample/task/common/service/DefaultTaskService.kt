@@ -1,10 +1,19 @@
 package com.taskframework.sample.task.common.service
 
+import com.taskframework.sample.task.common.repository.DefaultTaskRepository
+import com.taskframework.sample.task.common.task.DefaultTask
 import org.springframework.stereotype.Service
-import com.taskframework.framework.repository.TaskRepository
-import com.taskframework.framework.service.TaskService
 
 @Service
 class DefaultTaskService(
-    repository: TaskRepository
-) : TaskService(repository)
+    private val repository: DefaultTaskRepository
+) {
+
+    fun save(task: DefaultTask) {
+        repository.save(task)
+    }
+
+    fun getAllTasks(): List<DefaultTask> = repository.getAll()
+
+
+}

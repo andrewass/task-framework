@@ -1,8 +1,8 @@
 package com.taskframework.sample.task.common.controller
 
-import com.taskframework.framework.task.Task
-import com.taskframework.framework.service.TaskOrchestrationService
-import com.taskframework.framework.service.TaskService
+import com.taskframework.sample.task.common.service.DefaultTaskOrchestrationService
+import com.taskframework.sample.task.common.service.DefaultTaskService
+import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.firsttask.task.FirstTask
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RestController
 @RestController
 @RequestMapping("/task")
 class TaskController(
-    private val taskService: TaskService,
-    private val taskOrchestrationService: TaskOrchestrationService
+    private val taskService: DefaultTaskService,
+    private val taskOrchestrationService: DefaultTaskOrchestrationService
 ) {
 
     @PostMapping("/save-task")
@@ -22,8 +22,8 @@ class TaskController(
     }
 
     @GetMapping("/get-all")
-    fun getAll(): List<Task> {
-        return taskService.getAll()
+    fun getAll(): List<DefaultTask> {
+        return taskService.getAllTasks()
     }
 
     @PostMapping("/start-all")

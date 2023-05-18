@@ -6,6 +6,10 @@ import org.springframework.stereotype.Service
 
 @Service
 class DefaultTaskOrchestrationService(
-    repository: DefaultTaskOrchestrationRepository,
-    taskRunnerFactory: TaskRunnerFactory
-)
+    private val repository: DefaultTaskOrchestrationRepository,
+    private val taskRunnerFactory: TaskRunnerFactory,
+) {
+
+    fun runTasks(){
+    }
+}

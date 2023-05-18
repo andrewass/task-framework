@@ -5,7 +5,7 @@ import com.taskframework.sample.task.common.task.DefaultTask
 import org.springframework.stereotype.Repository
 
 @Repository
-class CustomTaskRepository(
+class DefaultTaskRepository(
     private val repository: TaskJpaRepository
 ) {
 
