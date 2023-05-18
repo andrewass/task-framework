@@ -10,6 +10,12 @@ class DefaultTaskOrchestrationService(
     private val taskRunnerFactory: TaskRunnerFactory,
 ) {
 
-    fun runTasks(){
+    fun runTasks() {
+        repository.findAllIncompleteTasks()
+            .filter { it.isEligibleForRunning() }
+            .forEach {
+                val taskName = it.getTaskName()
+                taskRunnerFactory.getTaskRunner(taskName).run(it)
+            }
     }
 }

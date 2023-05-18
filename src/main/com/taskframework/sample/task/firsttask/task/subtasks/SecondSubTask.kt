@@ -18,6 +18,6 @@ class SecondSubTask(
 class SecondSubTaskRunner {
 
     fun runSubTask(subTask: DefaultSubTask) {
-        TODO("Not yet implemented")
+        println("Running second subtask")
     }
 }

@@ -1,5 +1,6 @@
 package com.taskframework.sample.task.common.task.subtask
 
+import com.taskframework.framework.task.subtask.SubTaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.*
 
@@ -15,5 +16,7 @@ abstract class DefaultSubTask(
 
     @ManyToOne
     @JoinColumn(name = "TASK_ID")
-    open val task: DefaultTask
+    open val task: DefaultTask,
+
+    open var subTaskStatus: SubTaskStatus = SubTaskStatus.ACTIVE
 )

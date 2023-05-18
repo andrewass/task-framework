@@ -1,5 +1,7 @@
 package com.taskframework.sample.task.firsttask.task
 
+import com.taskframework.framework.task.Task
+import com.taskframework.framework.task.TaskRunner
 import com.taskframework.framework.task.TaskRunnerComponent
 import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.DiscriminatorValue
@@ -9,13 +11,18 @@ import jakarta.persistence.Entity
 @DiscriminatorValue("FIRST_TASK")
 class FirstTask(
     personId: Long
-) : DefaultTask()
+) : DefaultTask() {
+
+    override fun run() {
+        TODO("Not yet implemented")
+    }
+}
 
 
 @TaskRunnerComponent("FIRST_TASK")
-class FirstTaskRunner {
+class FirstTaskRunner : TaskRunner {
 
-    fun runTask(task: DefaultTask) {
-        println("Running first task")
+    override fun run(task: Task) {
+        TODO("Not yet implemented")
     }
 }

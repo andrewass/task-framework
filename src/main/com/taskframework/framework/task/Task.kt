@@ -1,4 +1,6 @@
 package com.taskframework.framework.task
 
-class Task {
+abstract class Task {
+
+    abstract fun run()
 }
