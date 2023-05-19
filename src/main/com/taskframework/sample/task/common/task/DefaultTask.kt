@@ -2,8 +2,8 @@ package com.taskframework.sample.task.common.task
 
 import com.taskframework.framework.task.Task
 import com.taskframework.framework.task.TaskStatus
-import com.taskframework.framework.task.subtask.SubTaskStatus
-import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
+import com.taskframework.framework.task.subtask.SubtaskStatus
+import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
 import jakarta.persistence.*
 import org.hibernate.annotations.Cascade
 import org.hibernate.annotations.CascadeType
@@ -23,7 +23,7 @@ abstract class DefaultTask(
 
     @OneToMany(mappedBy = "task")
     @Cascade(CascadeType.ALL)
-    open val subTasks: List<DefaultSubTask> = mutableListOf(),
+    open val subtasks: List<DefaultSubtask> = mutableListOf(),
 
     open var taskStatus: TaskStatus = TaskStatus.CREATED,
 
@@ -35,8 +35,8 @@ abstract class DefaultTask(
 
     fun isEligibleForRunning(): Boolean = resumeTime?.isAfter(LocalDateTime.now()) != true
 
-    private fun getActiveSubTask(): DefaultSubTask = subTasks
-        .first { listOf(SubTaskStatus.ACTIVE, SubTaskStatus.AWAITING).contains(it.subTaskStatus) }
+    private fun getActiveSubtask(): DefaultSubtask = subtasks
+        .first { listOf(SubtaskStatus.ACTIVE, SubtaskStatus.AWAITING).contains(it.subtaskStatus) }
 
     override fun run() {
         println("Running")

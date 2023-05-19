@@ -1,13 +1,13 @@
 package com.taskframework.sample.task.common.task.subtask
 
-import com.taskframework.framework.task.subtask.SubTaskStatus
+import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.*
 
 @Table
 @Entity(name = "DEFAULT_SUBTASK")
 @DiscriminatorColumn(name = "SUBTASK_NAME", discriminatorType = DiscriminatorType.STRING)
-abstract class DefaultSubTask(
+abstract class DefaultSubtask(
 
     @Id
     @Column(name = "SUBTASK_ID")
@@ -18,5 +18,5 @@ abstract class DefaultSubTask(
     @JoinColumn(name = "TASK_ID")
     open val task: DefaultTask,
 
-    open var subTaskStatus: SubTaskStatus = SubTaskStatus.ACTIVE
+    open var subtaskStatus: SubtaskStatus = SubtaskStatus.ACTIVE
 )

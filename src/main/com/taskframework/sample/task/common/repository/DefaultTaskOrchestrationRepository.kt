@@ -11,5 +11,4 @@ class DefaultTaskOrchestrationRepository(
     fun findAllIncompleteTasks(): List<DefaultTask> {
         return repository.findAllByTaskStatusIn(listOf(TaskStatus.AWAITING, TaskStatus.CREATED, TaskStatus.IN_PROGRESS))
     }
-
 }

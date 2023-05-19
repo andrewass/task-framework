@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component
 @Retention(AnnotationRetention.RUNTIME)
 @MustBeDocumented
 @Component
-annotation class SubTaskRunnerComponent(
+annotation class SubtaskRunnerComponent(
     @get:AliasFor(annotation = Component::class) val value: String = ""
 )
 

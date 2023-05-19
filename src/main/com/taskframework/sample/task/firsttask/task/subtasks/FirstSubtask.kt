@@ -1,22 +1,22 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
-import com.taskframework.framework.task.subtask.SubTaskRunnerComponent
+import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
 import com.taskframework.sample.task.common.task.DefaultTask
-import com.taskframework.sample.task.common.task.subtask.DefaultSubTask
+import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
 import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
 
 @Entity(name = "FIRST_SUBTASK")
 @DiscriminatorValue("FIRST_SUBTASK")
-class FirstSubTask(
+class FirstSubtask(
     task: DefaultTask
-) : DefaultSubTask(task = task)
+) : DefaultSubtask(task = task)
 
 
-@SubTaskRunnerComponent("FIRST_SUBTASK")
-class FirstSubTaskRunner {
+@SubtaskRunnerComponent("FIRST_SUBTASK")
+class FirstSubtaskRunner {
 
-    fun runSubTask(subTask: DefaultSubTask) {
+    fun runSubtask(subtask: DefaultSubtask) {
         println("Running first subtask")
     }
 }

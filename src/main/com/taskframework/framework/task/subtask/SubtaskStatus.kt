@@ -1,6 +1,6 @@
 package com.taskframework.framework.task.subtask
 
-enum class SubTaskStatus {
+enum class SubtaskStatus {
     AWAITING,
     COMPLETED,
     ACTIVE

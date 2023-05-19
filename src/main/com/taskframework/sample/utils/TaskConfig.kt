@@ -1,7 +1,7 @@
 package com.taskframework.sample.utils
 
 import com.taskframework.framework.task.TaskRunnerFactory
-import com.taskframework.framework.task.subtask.SubTaskRunnerFactory
+import com.taskframework.framework.task.subtask.SubtaskRunnerFactory
 import org.springframework.beans.factory.FactoryBean
 import org.springframework.beans.factory.config.ServiceLocatorFactoryBean
 import org.springframework.context.annotation.Bean
@@ -17,10 +17,10 @@ class TaskConfig {
         return factoryBean
     }
 
-    @Bean("subTaskRunnerFactory")
-    fun getServiceLocaterFactoryBeanSubTask(): FactoryBean<*> {
+    @Bean("subtaskRunnerFactory")
+    fun getServiceLocaterFactoryBeanSubtask(): FactoryBean<*> {
         val factoryBean = ServiceLocatorFactoryBean()
-        factoryBean.setServiceLocatorInterface(SubTaskRunnerFactory::class.java)
+        factoryBean.setServiceLocatorInterface(SubtaskRunnerFactory::class.java)
         return factoryBean
     }
 
