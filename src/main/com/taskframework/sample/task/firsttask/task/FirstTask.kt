@@ -23,6 +23,5 @@ class FirstTask(
 class FirstTaskRunner : TaskRunner {
 
     override fun run(task: Task) {
-        TODO("Not yet implemented")
     }
 }

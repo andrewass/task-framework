@@ -1,5 +1,6 @@
 package com.taskframework.sample.task.common.task.subtask
 
+import com.taskframework.framework.task.subtask.Subtask
 import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.*
@@ -19,4 +20,4 @@ abstract class DefaultSubtask(
     open val task: DefaultTask,
 
     open var subtaskStatus: SubtaskStatus = SubtaskStatus.ACTIVE
-)
+) : Subtask()

@@ -27,7 +27,14 @@ abstract class DefaultTask(
 
     open var taskStatus: TaskStatus = TaskStatus.CREATED,
 
-    open val resumeTime: LocalDateTime? = null
+    open val resumeTime: LocalDateTime? = null,
+
+    @Lob
+    open val input: String? = null,
+
+    @Lob
+    open val output: String? = null
+
 ) : Task() {
 
     @Transient

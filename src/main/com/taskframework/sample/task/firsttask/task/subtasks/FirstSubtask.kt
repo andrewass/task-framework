@@ -1,8 +1,10 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
+import com.taskframework.framework.task.subtask.SubtaskRunner
 import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
+import com.taskframework.sample.utils.UselessService
 import jakarta.persistence.DiscriminatorValue
 import jakarta.persistence.Entity
 
@@ -14,9 +16,11 @@ class FirstSubtask(
 
 
 @SubtaskRunnerComponent("FIRST_SUBTASK")
-class FirstSubtaskRunner {
+class FirstSubtaskRunner(
+    private val uselessService: UselessService
+) : SubtaskRunner<DefaultSubtask> {
 
-    fun runSubtask(subtask: DefaultSubtask) {
-        println("Running first subtask")
+    override fun runSubtask(subtask: DefaultSubtask): DefaultSubtask? {
+        TODO("Not yet implemented")
     }
 }
