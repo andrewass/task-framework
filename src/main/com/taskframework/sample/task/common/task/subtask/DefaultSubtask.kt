@@ -20,4 +20,9 @@ abstract class DefaultSubtask(
     open val task: DefaultTask,
 
     open var subtaskStatus: SubtaskStatus = SubtaskStatus.ACTIVE
-) : Subtask()
+) : Subtask() {
+
+    @Transient
+    fun getSubtaskName(): String = this.javaClass.getAnnotation(DiscriminatorValue::class.java).value
+
+}

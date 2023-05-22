@@ -1,4 +1,4 @@
-package com.taskframework.sample.task.common.controller
+package com.taskframework.sample.task.firsttask.controller
 
 import com.taskframework.sample.task.common.service.DefaultTaskOrchestrationService
 import com.taskframework.sample.task.common.service.DefaultTaskService
@@ -10,15 +10,15 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("/task")
-class TaskController(
+@RequestMapping("/first-task")
+class FirstTaskController(
     private val taskService: DefaultTaskService,
     private val taskOrchestrationService: DefaultTaskOrchestrationService
 ) {
 
     @PostMapping("/save-task")
     fun saveTask() {
-        taskService.save(FirstTask(344L))
+        taskService.save(FirstTask())
     }
 
     @GetMapping("/get-all")

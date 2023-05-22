@@ -23,7 +23,7 @@ abstract class DefaultTask(
 
     @OneToMany(mappedBy = "task")
     @Cascade(CascadeType.ALL)
-    open val subtasks: List<DefaultSubtask> = mutableListOf(),
+    open val subtasks: MutableList<DefaultSubtask> = mutableListOf(),
 
     open var taskStatus: TaskStatus = TaskStatus.CREATED,
 
@@ -42,8 +42,8 @@ abstract class DefaultTask(
 
     fun isEligibleForRunning(): Boolean = resumeTime?.isAfter(LocalDateTime.now()) != true
 
-    private fun getActiveSubtask(): DefaultSubtask = subtasks
-        .first { listOf(SubtaskStatus.ACTIVE, SubtaskStatus.AWAITING).contains(it.subtaskStatus) }
+    fun getActiveSubtask(): DefaultSubtask? = subtasks
+        .find { listOf(SubtaskStatus.ACTIVE, SubtaskStatus.AWAITING).contains(it.subtaskStatus) }
 
     override fun run() {
         println("Running")

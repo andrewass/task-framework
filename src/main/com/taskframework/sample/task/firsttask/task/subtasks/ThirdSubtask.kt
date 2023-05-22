@@ -1,6 +1,5 @@
 package com.taskframework.sample.task.firsttask.task.subtasks
 
-import com.taskframework.framework.task.subtask.Subtask
 import com.taskframework.framework.task.subtask.SubtaskRunner
 import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
 import com.taskframework.sample.task.common.task.DefaultTask
@@ -18,9 +17,9 @@ class ThirdSubtask(
 @SubtaskRunnerComponent("THIRD_SUBTASK")
 class ThirdSubtaskRunner(
     private val uselessService: UselessService
-) : SubtaskRunner {
+) : SubtaskRunner<DefaultSubtask> {
 
-    override fun runSubtask(subtask: Subtask): Subtask? {
+    override fun run(subtask: DefaultSubtask): DefaultSubtask? {
         TODO("Not yet implemented")
     }
 }

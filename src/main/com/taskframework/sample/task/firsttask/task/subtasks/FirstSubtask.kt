@@ -2,6 +2,7 @@ package com.taskframework.sample.task.firsttask.task.subtasks
 
 import com.taskframework.framework.task.subtask.SubtaskRunner
 import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
+import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
 import com.taskframework.sample.utils.UselessService
@@ -20,7 +21,9 @@ class FirstSubtaskRunner(
     private val uselessService: UselessService
 ) : SubtaskRunner<DefaultSubtask> {
 
-    override fun runSubtask(subtask: DefaultSubtask): DefaultSubtask? {
-        TODO("Not yet implemented")
+    override fun run(subtask: DefaultSubtask): DefaultSubtask? {
+        println("Running first subtask ${uselessService.getSomethingUseless()}")
+        subtask.subtaskStatus = SubtaskStatus.COMPLETED
+        return SecondSubtask(subtask.task)
     }
 }

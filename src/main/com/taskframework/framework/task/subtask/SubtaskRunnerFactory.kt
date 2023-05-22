@@ -1,6 +1,6 @@
 package com.taskframework.framework.task.subtask
 
-interface SubtaskRunnerFactory {
+interface SubtaskRunnerFactory<T : Subtask> {
 
-    fun getSubtaskRunner(subtaskName: String): SubtaskRunner
+    fun getSubtaskRunner(subtaskName: String): SubtaskRunner<T>
 }

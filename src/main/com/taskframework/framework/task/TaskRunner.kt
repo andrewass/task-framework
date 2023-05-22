@@ -1,7 +1,7 @@
 package com.taskframework.framework.task
 
 
-interface TaskRunner {
+interface TaskRunner<T : Task> {
 
-    fun run(task: Task)
+    fun run(task: T)
 }

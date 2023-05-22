@@ -9,10 +9,7 @@ class DefaultTaskRepository(
     private val repository: TaskJpaRepository
 ) {
 
-    fun save(task: DefaultTask) {
-        val response = repository.save(task)
-        val test = 323
-    }
+    fun save(task: DefaultTask): DefaultTask = repository.save(task)
 
     fun getAll(): List<DefaultTask> {
         val response = repository.findAll()

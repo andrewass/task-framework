@@ -19,7 +19,7 @@ class FourthSubtaskRunner(
     private val uselessService: UselessService
 ) : SubtaskRunner<DefaultSubtask> {
 
-    override fun runSubtask(subtask: DefaultSubtask): DefaultSubtask? {
-        TODO("Not yet implemented")
+    override fun run(subtask: DefaultSubtask): DefaultSubtask? {
+        return null
     }
 }

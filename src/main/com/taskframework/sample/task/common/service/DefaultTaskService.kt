@@ -9,9 +9,7 @@ class DefaultTaskService(
     private val repository: DefaultTaskRepository
 ) {
 
-    fun save(task: DefaultTask) {
-        repository.save(task)
-    }
+    fun save(task: DefaultTask): DefaultTask = repository.save(task)
 
     fun getAllTasks(): List<DefaultTask> = repository.getAll()
 
