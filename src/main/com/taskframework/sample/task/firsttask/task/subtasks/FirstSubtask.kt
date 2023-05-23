@@ -21,9 +21,9 @@ class FirstSubtaskRunner(
     private val uselessService: UselessService
 ) : SubtaskRunner<DefaultSubtask> {
 
-    override fun run(subtask: DefaultSubtask): DefaultSubtask? {
+    override fun run(subtask: DefaultSubtask): Pair<DefaultSubtask?, SubtaskStatus> {
         println("Running first subtask ${uselessService.getSomethingUseless()}")
-        subtask.subtaskStatus = SubtaskStatus.COMPLETED
-        return SecondSubtask(subtask.task)
+
+        return Pair(SecondSubtask(subtask.task), SubtaskStatus.COMPLETED)
     }
 }
