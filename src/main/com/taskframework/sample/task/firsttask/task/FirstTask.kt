@@ -38,21 +38,31 @@ class FirstTaskRunner(
                 ?.also { subtask ->
                     subtaskRunnerFactory.getSubtaskRunner(subtask.getSubtaskName())
                         .run(subtask)
-                        .also { processResult(it.first, it.second, task) }
+                        .also { (nextSubtask, currentSubtaskStatus) ->
+                            processResult(subtask, currentSubtaskStatus, nextSubtask, task)
+                        }
                 } ?: break
         }
     }
 
-    private fun processResult(subtask: DefaultSubtask?, subtaskStatus: SubtaskStatus, task: DefaultTask) {
-        when (subtaskStatus) {
-            SubtaskStatus.COMPLETED -> processCompletedSubtask(subtask, task)
-            SubtaskStatus.AWAITING -> processAwaitingSubtask(subtask!!)
+    private fun processResult(
+        currentSubtask: DefaultSubtask, currentSubtaskStatus: SubtaskStatus,
+        nextSubtask: DefaultSubtask?, task: DefaultTask
+    ) {
+        when (currentSubtaskStatus) {
+            SubtaskStatus.COMPLETED -> processCompletedSubtask(currentSubtask, nextSubtask, task)
+            SubtaskStatus.AWAITING -> processAwaitingSubtask(currentSubtask)
             SubtaskStatus.ACTIVE -> TODO()
         }
         taskRepository.save(task)
     }
 
-    private fun processCompletedSubtask(nextSubtask: DefaultSubtask?, task: DefaultTask) {
+    private fun processCompletedSubtask(
+        currentSubtask: DefaultSubtask,
+        nextSubtask: DefaultSubtask?,
+        task: DefaultTask
+    ) {
+        currentSubtask.subtaskStatus = SubtaskStatus.COMPLETED
         if (nextSubtask != null) {
             task.subtasks.add(nextSubtask)
             task.taskStatus = TaskStatus.IN_PROGRESS

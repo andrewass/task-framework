@@ -23,6 +23,12 @@ class SecondSubtaskRunner(
 ) : SubtaskRunner<DefaultSubtask> {
 
     override fun run(subtask: DefaultSubtask): Pair<DefaultSubtask?, SubtaskStatus> {
-        TODO("Not yet implemented")
+        return if (uselessService.getRandomNumber().mod(2) == 0) {
+            println("Redirect to third subtask in second task")
+            Pair(ThirdSubtask(subtask.task), SubtaskStatus.COMPLETED)
+        } else {
+            println("Redirect to fourth subtask in second task")
+            Pair(FourthSubtask(subtask.task), SubtaskStatus.COMPLETED)
+        }
     }
 }

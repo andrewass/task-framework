@@ -7,8 +7,9 @@ import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
 import com.taskframework.sample.utils.UselessService
 import jakarta.persistence.DiscriminatorValue
+import jakarta.persistence.Entity
 
-
+@Entity(name = "FOURTH_SUBTASK")
 @DiscriminatorValue("FOURTH_SUBTASK")
 class FourthSubtask(
     task: DefaultTask
@@ -21,6 +22,6 @@ class FourthSubtaskRunner(
 ) : SubtaskRunner<DefaultSubtask> {
 
     override fun run(subtask: DefaultSubtask): Pair<DefaultSubtask?, SubtaskStatus> {
-        return Pair(subtask, SubtaskStatus.COMPLETED)
+        return Pair(null, SubtaskStatus.COMPLETED)
     }
 }

@@ -13,5 +13,7 @@ class DefaultTaskService(
 
     fun getAllTasks(): List<DefaultTask> = repository.getAll()
 
-
+    fun deleteAllTasks(){
+        repository.deleteAll()
+    }
 }

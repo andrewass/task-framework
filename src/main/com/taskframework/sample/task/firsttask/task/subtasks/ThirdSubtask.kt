@@ -5,10 +5,10 @@ import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
 import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
-import com.taskframework.sample.utils.UselessService
 import jakarta.persistence.DiscriminatorValue
+import jakarta.persistence.Entity
 
-
+@Entity(name = "THIRD_SUBTASK")
 @DiscriminatorValue("THIRD_SUBTASK")
 class ThirdSubtask(
     task: DefaultTask
@@ -16,11 +16,10 @@ class ThirdSubtask(
 
 
 @SubtaskRunnerComponent("THIRD_SUBTASK")
-class ThirdSubtaskRunner(
-    private val uselessService: UselessService
-) : SubtaskRunner<DefaultSubtask> {
+class ThirdSubtaskRunner : SubtaskRunner<DefaultSubtask> {
 
     override fun run(subtask: DefaultSubtask): Pair<DefaultSubtask?, SubtaskStatus> {
-        TODO("Not yet implemented")
+        println("Running random subtask 3")
+        return Pair(FourthSubtask(subtask.task), SubtaskStatus.COMPLETED)
     }
 }
