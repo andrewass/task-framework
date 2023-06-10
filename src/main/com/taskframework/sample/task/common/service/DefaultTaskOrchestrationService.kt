@@ -1,7 +1,8 @@
 package com.taskframework.sample.task.common.service
 
-import com.taskframework.framework.task.TaskRunnerFactory
+import com.taskframework.framework.task.TaskRunner
 import com.taskframework.sample.task.common.repository.DefaultTaskOrchestrationRepository
+import com.taskframework.sample.task.common.task.DefaultTask
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
@@ -9,15 +10,12 @@ import org.springframework.transaction.annotation.Transactional
 @Transactional
 class DefaultTaskOrchestrationService(
     private val repository: DefaultTaskOrchestrationRepository,
-    private val taskRunnerFactory: TaskRunnerFactory,
+    private val taskRunner: TaskRunner<DefaultTask>,
 ) {
 
     fun runTasks() {
         repository.findAllIncompleteTasks()
             .filter { it.isEligibleForRunning() }
-            .forEach {
-                val taskName = it.getTaskName()
-                taskRunnerFactory.getTaskRunner(taskName).run(it)
-            }
+            .forEach { taskRunner.run(it) }
     }
 }
