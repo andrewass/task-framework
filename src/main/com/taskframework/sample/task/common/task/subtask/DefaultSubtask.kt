@@ -4,6 +4,7 @@ import com.taskframework.framework.task.subtask.Subtask
 import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import jakarta.persistence.*
+import java.time.LocalDateTime
 
 @Table
 @Entity(name = "DEFAULT_SUBTASK")
@@ -19,7 +20,9 @@ abstract class DefaultSubtask(
     @JoinColumn(name = "TASK_ID")
     open val task: DefaultTask,
 
-    open var subtaskStatus: SubtaskStatus = SubtaskStatus.ACTIVE
+    open var subtaskStatus: SubtaskStatus = SubtaskStatus.ACTIVE,
+
+    open var delayedTo: LocalDateTime? = null,
 ) : Subtask() {
 
     @Transient

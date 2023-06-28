@@ -18,40 +18,29 @@ class DefaultTaskRunner(
         while (true) {
             task.getActiveSubtask()
                 ?.also { subtask ->
-                    subtaskRunnerFactory.getSubtaskRunner(subtask.getSubtaskName())
-                        .run(subtask)
-                        .also { (nextSubtask, currentSubtaskStatus) ->
-                            processResult(subtask, currentSubtaskStatus, nextSubtask, task)
-                        }
-                } ?: break
+                    subtask.delayedTo = null
+                    val nextSubtask = subtaskRunnerFactory.getSubtaskRunner(subtask.getSubtaskName()).run(subtask)
+                    updateTask(task, subtask, nextSubtask)
+                }
+                ?: break
         }
     }
 
-    private fun processResult(
-        currentSubtask: DefaultSubtask, currentSubtaskStatus: SubtaskStatus,
-        nextSubtask: DefaultSubtask?, task: DefaultTask
-    ) {
-        when (currentSubtaskStatus) {
-            SubtaskStatus.COMPLETED -> processCompletedSubtask(currentSubtask, nextSubtask, task)
-            SubtaskStatus.AWAITING -> processAwaitingSubtask(currentSubtask)
-            SubtaskStatus.ACTIVE -> TODO()
-        }
+    private fun updateTask(task: DefaultTask, currentSubtask: DefaultSubtask, nextTask: DefaultSubtask?) {
+        nextTask?.also {
+            currentSubtask.subtaskStatus = SubtaskStatus.COMPLETED
+            task.subtasks.add(nextTask)
+        } ?: postProcessUpdateStatus(task, currentSubtask)
         taskRepository.save(task)
     }
 
-    private fun processCompletedSubtask(
-        currentSubtask: DefaultSubtask,
-        nextSubtask: DefaultSubtask?,
-        task: DefaultTask
-    ) {
-        currentSubtask.subtaskStatus = SubtaskStatus.COMPLETED
-        if (nextSubtask != null) {
-            task.subtasks.add(nextSubtask)
-            task.taskStatus = TaskStatus.IN_PROGRESS
+    private fun postProcessUpdateStatus(task: DefaultTask, currentSubtask: DefaultSubtask) {
+        if (currentSubtask.delayedTo != null) {
+            currentSubtask.subtaskStatus = SubtaskStatus.AWAITING
+            task.taskStatus = TaskStatus.AWAITING
         } else {
+            currentSubtask.subtaskStatus = SubtaskStatus.COMPLETED
             task.taskStatus = TaskStatus.COMPLETED
         }
     }
-
-    private fun processAwaitingSubtask(subtask: DefaultSubtask) {}
 }
