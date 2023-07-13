@@ -2,7 +2,6 @@ package com.taskframework.sample.task.firsttask.task.subtasks
 
 import com.taskframework.framework.task.subtask.SubtaskRunner
 import com.taskframework.framework.task.subtask.SubtaskRunnerComponent
-import com.taskframework.framework.task.subtask.SubtaskStatus
 import com.taskframework.sample.task.common.task.DefaultTask
 import com.taskframework.sample.task.common.task.subtask.DefaultSubtask
 import com.taskframework.sample.utils.UselessService
@@ -22,13 +21,12 @@ class SecondSubtaskRunner(
     private val uselessService: UselessService
 ) : SubtaskRunner<DefaultSubtask> {
 
-    override fun run(subtask: DefaultSubtask): Pair<DefaultSubtask?, SubtaskStatus> {
+    override fun run(subtask: DefaultSubtask): DefaultSubtask? {
         return if (uselessService.getRandomNumber().mod(2) == 0) {
             println("Redirect to third subtask in second task")
-            Pair(ThirdSubtask(subtask.task), SubtaskStatus.COMPLETED)
+            ThirdSubtask(subtask.task)
         } else {
-            println("Redirect to fourth subtask in second task")
-            Pair(FourthSubtask(subtask.task), SubtaskStatus.COMPLETED)
+            FourthSubtask(subtask.task)
         }
     }
 }

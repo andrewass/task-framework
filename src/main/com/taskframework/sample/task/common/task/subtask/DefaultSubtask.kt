@@ -27,5 +27,4 @@ abstract class DefaultSubtask(
 
     @Transient
     fun getSubtaskName(): String = this.javaClass.getAnnotation(DiscriminatorValue::class.java).value
-
 }
